@@ -1,9 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { AppService } from './app.service';
+import { ScopedService } from './scoped.service';
 
 @Controller('v2')
 export class SecondController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService, private readonly scopedService: ScopedService) {}
 
   @Get()
   getHello(): string {
