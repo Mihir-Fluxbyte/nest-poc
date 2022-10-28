@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
 import { AppService } from './app.service';
 import { TestRequestDto } from './RequestDto/TestRequestDto';
 
@@ -45,6 +45,18 @@ export class SecondController {
     //  url/?ids=1,2,3
     // More details: https://docs.nestjs.com/techniques/validation
     return "It Works:"+ id;
+  }
+
+  @Get('exceptionpage')
+  exceptionTest(): any{
+    // custom response
+    throw new HttpException({
+      status: HttpStatus.INTERNAL_SERVER_ERROR,
+      error: 'Error'
+    }, HttpStatus.INTERNAL_SERVER_ERROR);
+
+    // default response { "statusCode": 500, "message": "Error" }
+    // throw new HttpException('Error', HttpStatus.INTERNAL_SERVER_ERROR);
   }
 
 }
