@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { AppService } from './app.service';
-import { TransientService } from './transient.service';
+import { AppService } from './Services/app.service';
+import { TransientService } from './Services/transient.service';
 
 @Controller()
 export class AppController {

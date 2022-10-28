@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
-import { AppService } from './app.service';
+import { AppService } from './Services/app.service';
 import { TestRequestDto } from './RequestDto/TestRequestDto';
-import { ScopedService } from './scoped.service';
+import { ScopedService } from './Services/scoped.service';
 
 @Controller('v2')
 export class SecondController {
