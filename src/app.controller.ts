@@ -1,9 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { AppService } from './app.service';
+import { TransientService } from './transient.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService, private readonly transientService: TransientService) {}
 
   @Get()
   getHello(): string {
@@ -12,7 +13,7 @@ export class AppController {
 
   @Get('test')
   getTest(): any{
-    return "It Works";
+    return "It Works first";
   }
 
   @Get('test/:id')

@@ -1,10 +1,11 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
 import { AppService } from './app.service';
 import { TestRequestDto } from './RequestDto/TestRequestDto';
+import { ScopedService } from './scoped.service';
 
 @Controller('v2')
 export class SecondController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService, private readonly scopedService: ScopedService) {}
 
   @Get()
   getHello(): string {
